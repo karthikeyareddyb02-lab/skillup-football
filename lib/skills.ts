@@ -63,6 +63,8 @@ export const skills: Skill[] = [
       "Play it the moment your teammate’s body is open and the passing lane is clear. If a defender is stepping, wait one touch and pass into the space they just left.",
     matchExample:
       "Watch any controlled team from the back: the centre-back opens the body and rolls an inside-foot pass into the midfielder’s feet. The skill looks simple because the timing is perfect.",
+    videoId: "HZ5W1HDheTo",
+    videoTitle: "Every passing technique, including the inside-foot pass",
     animation: "pass",
     image:
       "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1400&q=80",
@@ -114,6 +116,8 @@ export const skills: Skill[] = [
       "Start the step-over one step before the defender plants. The explode touch must come as they shift their weight, not after they have recovered.",
     matchExample:
       "Wide attackers use this to freeze a full-back, then burst outside or cut inside. One clean step-over is enough — stacking five of them usually loses the ball.",
+    videoId: "vKBmXlolQ28",
+    videoTitle: "How to teach and use the step-over",
     animation: "fake",
     image:
       "https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?auto=format&fit=crop&w=1400&q=80",
@@ -218,6 +222,8 @@ export const skills: Skill[] = [
       "The snap-back must happen before the defender plants the foot they committed. If they stay balanced, the elastico becomes a heavy touch.",
     matchExample:
       "Ronaldinho’s elastico in 1v1s sold the outside, then took the inside lane in a single flick. The defender’s weight was already gone.",
+    videoId: "Uursm9mHlq4",
+    videoTitle: "How to do the elastico like Ronaldinho",
     animation: "fake",
     image:
       "https://images.unsplash.com/photo-1553778263-73a83bab9b0c?auto=format&fit=crop&w=1400&q=80",
@@ -235,6 +241,8 @@ export const skills: Skill[] = [
       "Start the drag as the defender reaches for the ball. Your body becomes the shield during the spin. Exit toward the open side, not back into traffic.",
     matchExample:
       "Zinedine Zidane used this turn to escape double teams in midfield. The spin is not for show — it is a shield and a reset in one move.",
+    videoId: "3IpA1P1gB9k",
+    videoTitle: "How to learn the Marseille turn / Zidane roulette",
     animation: "turn",
     image:
       "https://images.unsplash.com/photo-1461896836934-ffe607ba6852?auto=format&fit=crop&w=1400&q=80",
@@ -269,6 +277,8 @@ export const skills: Skill[] = [
       "The standing foot must be planted close enough to wrap cleanly. Strike when the ball is slightly ahead. If you are off balance, take a touch instead.",
     matchExample:
       "Wingers and attackers have scored and crossed with rabonas when they were cut onto their weaker foot at the byline.",
+    videoId: "tigrYlhZyIo",
+    videoTitle: "How to do a rabona",
     animation: "cross",
     image:
       "https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=1400&q=80",
