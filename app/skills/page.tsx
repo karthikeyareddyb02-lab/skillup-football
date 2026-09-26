@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { PageKicker } from "@/components/page-kicker"
 import { SkillCard } from "@/components/skill-card"
 import { difficulties, difficultyCopy, skillsByDifficulty } from "@/lib/skills"
 
@@ -11,7 +12,7 @@ export default function SkillsPage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
       <div className="max-w-2xl space-y-3">
-        <p className="text-sm uppercase tracking-[0.2em] text-primary">Difficulty 1 to 5</p>
+        <PageKicker>The squad · Difficulty 1 to 5</PageKicker>
         <h1 className="text-4xl sm:text-5xl">All the football skills</h1>
         <p className="text-muted-foreground">
           Level 1 is the normal, daily-life football you use every session. Level 5

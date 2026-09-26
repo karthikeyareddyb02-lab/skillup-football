@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu } from "lucide-react"
+import { FootballBall } from "@/components/football-ball"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
@@ -26,13 +27,15 @@ export function SiteHeader() {
   const { user } = useAuth()
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/70 bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-40 bg-background/85 backdrop-blur-md">
+      <div className="kit-stripe h-1.5 w-full" />
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2 font-heading text-lg tracking-wide">
-          <span className="grid size-8 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
-            SU
+        <Link href="/" className="flex items-center gap-2.5 font-heading text-lg tracking-wide">
+          <FootballBall className="size-9 drop-shadow-sm" />
+          <span>
+            SkillUp
+            <span className="block text-[11px] tracking-[0.22em] text-primary">Football</span>
           </span>
-          SkillUp Football
         </Link>
         <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
           {links.map((link) => (
@@ -40,8 +43,8 @@ export function SiteHeader() {
               key={link.href}
               href={link.href}
               className={cn(
-                "rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground",
-                pathname === link.href && "bg-muted text-foreground",
+                "rounded-lg px-3 py-2 text-sm uppercase tracking-wide text-muted-foreground transition-colors hover:text-foreground",
+                pathname === link.href && "bg-primary/15 text-primary",
               )}
             >
               {link.label}
@@ -69,8 +72,8 @@ export function SiteHeader() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "rounded-lg px-3 py-2 text-sm",
-                    pathname === link.href ? "bg-muted" : "text-muted-foreground",
+                    "rounded-lg px-3 py-2 text-sm uppercase tracking-wide",
+                    pathname === link.href ? "bg-primary/15 text-primary" : "text-muted-foreground",
                   )}
                 >
                   {link.label}
@@ -83,6 +86,7 @@ export function SiteHeader() {
           </SheetContent>
         </Sheet>
       </div>
+      <div className="kit-stripe h-1 w-full opacity-70" />
     </header>
   )
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { LoginForm } from "@/components/login-form"
+import { PitchAnimation } from "@/components/pitch-animation"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 export const metadata: Metadata = {
   title: "Log in",
@@ -10,8 +11,9 @@ export const metadata: Metadata = {
 export default function LoginPage() {
   return (
     <div className="mx-auto flex w-full max-w-lg flex-col px-4 py-16 sm:px-6">
-      <Card>
+      <Card className="match-card">
         <CardHeader>
+          <PitchAnimation kind="powershot" caption={false} />
           <CardTitle>Welcome back to the pitch</CardTitle>
           <CardDescription>
             Log in or create an account. Your session stays on this computer for

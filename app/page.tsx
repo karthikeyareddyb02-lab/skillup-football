@@ -1,9 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
+import { FootballBall } from "@/components/football-ball"
+import { LoginForm } from "@/components/login-form"
+import { PageKicker } from "@/components/page-kicker"
+import { PitchAnimation } from "@/components/pitch-animation"
+import { SkillCard } from "@/components/skill-card"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { LoginForm } from "@/components/login-form"
-import { SkillCard } from "@/components/skill-card"
 import { skills } from "@/lib/skills"
 
 const aboutPhotos = [
@@ -27,43 +30,51 @@ const aboutPhotos = [
 export default function HomePage() {
   return (
     <div>
-      <section className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:py-16">
-        <div className="space-y-6">
-          <p className="text-sm uppercase tracking-[0.2em] text-primary">Football skill academy</p>
-          <h1 className="max-w-xl text-5xl leading-none sm:text-6xl">
-            Learn the skill. Know the moment. See it in the match.
-          </h1>
-          <p className="max-w-xl text-lg text-muted-foreground">
-            SkillUp Football teaches moves by difficulty, then shows where to use
-            them, the perfect timing, and real examples — with animations you can
-            replay until the picture is clear.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <Button asChild size="lg">
-              <Link href="/skills">Browse skills</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link href="/videos">Watch examples</Link>
-            </Button>
+      <section className="stadium-hero">
+        <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:py-20">
+          <div className="space-y-6">
+            <PageKicker>Kick-off · Football academy</PageKicker>
+            <h1 className="max-w-xl text-5xl leading-[0.9] sm:text-7xl">
+              Learn the skill. Know the moment. See it in the match.
+            </h1>
+            <p className="max-w-xl text-lg text-pretty text-foreground/85">
+              SkillUp Football teaches moves by difficulty, then shows where to
+              use them, the perfect timing, and real examples — with pitch
+              animations you can replay until the picture is clear.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Button asChild size="lg">
+                <Link href="/skills">Browse the squad of skills</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <Link href="/videos">Watch the film room</Link>
+              </Button>
+            </div>
+            <div className="flex items-center gap-3 text-sm text-foreground/75">
+              <FootballBall className="size-8" />
+              15 skills · 5 difficulty shirts · match-day timing
+            </div>
+            <PitchAnimation kind="powershot" caption={false} />
           </div>
+          <Card className="match-card bg-card/90 backdrop-blur-sm">
+            <CardHeader>
+              <CardTitle>Sign in at the tunnel</CardTitle>
+              <CardDescription>
+                Create an account to keep your place. This first version stores
+                the login on this device only.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <LoginForm compact />
+            </CardContent>
+          </Card>
         </div>
-        <Card>
-          <CardHeader>
-            <CardTitle>Log in on the home page</CardTitle>
-            <CardDescription>
-              Create an account to keep your place. This first version stores the
-              login on this device only.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <LoginForm compact />
-          </CardContent>
-        </Card>
       </section>
 
-      <section className="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-6">
+      <section className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
         <div className="mb-6">
-          <h2 className="text-3xl">About SkillUp</h2>
+          <PageKicker>The club</PageKicker>
+          <h2 className="mt-2 text-3xl">About SkillUp</h2>
           <p className="mt-2 max-w-2xl text-muted-foreground">
             This is a training desk for players who want more than a list of tricks.
             Each skill has three layers: the move, the situation, and the film.
@@ -71,7 +82,7 @@ export default function HomePage() {
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {aboutPhotos.map((photo) => (
-            <figure key={photo.src} className="overflow-hidden rounded-xl ring-1 ring-foreground/10">
+            <figure key={photo.src} className="overflow-hidden rounded-xl ring-1 ring-primary/20">
               <div className="relative aspect-4/3">
                 <Image
                   src={photo.src}
@@ -93,28 +104,32 @@ export default function HomePage() {
         {[
           {
             href: "/skills",
-            title: "Skills",
-            text: "Fifteen football skills from difficulty 1 (daily basics) to difficulty 5 (elite).",
+            title: "The skills",
+            text: "Fifteen football skills from shirt 1 (daily basics) to shirt 5 (elite).",
+            animation: "dribble" as const,
           },
           {
             href: "/when-to-use",
-            title: "Where to use it",
-            text: "The situation and the perfect timing for every skill, written for the pitch.",
+            title: "On the pitch",
+            text: "The situation and the perfect timing for every skill, written for the game.",
+            animation: "through" as const,
           },
           {
             href: "/videos",
-            title: "Videos",
+            title: "Film room",
             text: "Match-style clips and pitch animations that show exactly when to play the move.",
+            animation: "powershot" as const,
           },
         ].map((item) => (
-          <Card key={item.href}>
+          <Card key={item.href} className="match-card">
             <CardHeader>
+              <PitchAnimation kind={item.animation} caption={false} />
               <CardTitle>{item.title}</CardTitle>
               <CardDescription>{item.text}</CardDescription>
             </CardHeader>
             <CardContent>
               <Button asChild variant="outline">
-                <Link href={item.href}>Open</Link>
+                <Link href={item.href}>Take the field</Link>
               </Button>
             </CardContent>
           </Card>
@@ -123,9 +138,12 @@ export default function HomePage() {
 
       <section className="mx-auto w-full max-w-6xl px-4 pb-20 sm:px-6">
         <div className="mb-6 flex items-end justify-between gap-4">
-          <h2 className="text-3xl">Start with a few skills</h2>
+          <div>
+            <PageKicker>First XI</PageKicker>
+            <h2 className="mt-2 text-3xl">Start with a few skills</h2>
+          </div>
           <Button asChild variant="link">
-            <Link href="/skills">See all</Link>
+            <Link href="/skills">See the full squad</Link>
           </Button>
         </div>
         <div className="grid gap-4 md:grid-cols-3">

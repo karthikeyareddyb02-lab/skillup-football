@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { PageKicker } from "@/components/page-kicker"
+import { PitchAnimation } from "@/components/pitch-animation"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { difficultyCopy, skills } from "@/lib/skills"
@@ -13,7 +15,7 @@ export default function WhenToUsePage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
       <div className="max-w-2xl space-y-3">
-        <p className="text-sm uppercase tracking-[0.2em] text-primary">Situations</p>
+        <PageKicker>On the pitch</PageKicker>
         <h1 className="text-4xl sm:text-5xl">Where you need to use the skill</h1>
         <p className="text-muted-foreground">
           A skill is only useful if you know the picture. For every move we write
@@ -22,7 +24,7 @@ export default function WhenToUsePage() {
       </div>
       <div className="mt-10 space-y-4">
         {skills.map((skill) => (
-          <Card key={skill.slug}>
+          <Card key={skill.slug} className="match-card">
             <CardHeader className="gap-3 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <div className="mb-2 flex items-center gap-2">
@@ -36,6 +38,9 @@ export default function WhenToUsePage() {
                     {skill.name}
                   </Link>
                 </CardTitle>
+              </div>
+              <div className="w-full sm:max-w-xs">
+                <PitchAnimation kind={skill.animation} compact caption={false} />
               </div>
             </CardHeader>
             <CardContent className="grid gap-6 md:grid-cols-2">

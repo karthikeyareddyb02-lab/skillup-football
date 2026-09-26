@@ -2,12 +2,19 @@ export type Difficulty = 1 | 2 | 3 | 4 | 5
 export type AnimationKind =
   | "pass"
   | "dribble"
+  | "receive"
+  | "stepover"
+  | "cross"
+  | "powershot"
   | "turn"
   | "through"
-  | "shot"
-  | "fake"
-  | "cross"
-  | "setpiece"
+  | "onetwo"
+  | "elastico"
+  | "roulette"
+  | "nolook"
+  | "rabona"
+  | "panenka"
+  | "trivela"
 
 export type Skill = {
   slug: string
@@ -99,7 +106,7 @@ export const skills: Skill[] = [
       "Check your shoulder before the ball arrives. Open the back foot as the pass is struck, not after you have already stopped the ball.",
     matchExample:
       "A number 8 receives between the lines, lets the ball run across the body, and is already facing the opponent’s goal on the first touch.",
-    animation: "turn",
+    animation: "receive",
     image:
       "https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=1400&q=80",
     imageAlt: "Footballers receiving and turning with the ball",
@@ -118,7 +125,7 @@ export const skills: Skill[] = [
       "Wide attackers use this to freeze a full-back, then burst outside or cut inside. One clean step-over is enough — stacking five of them usually loses the ball.",
     videoId: "vKBmXlolQ28",
     videoTitle: "How to teach and use the step-over",
-    animation: "fake",
+    animation: "stepover",
     image:
       "https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?auto=format&fit=crop&w=1400&q=80",
     imageAlt: "Attacker taking on a defender in a 1v1",
@@ -152,7 +159,7 @@ export const skills: Skill[] = [
       "Decide before the ball reaches you. Plant the standing foot early and hit through the middle if you want it low, or across the face if the keeper is rushing out.",
     matchExample:
       "A midfielder arrives late at the top of the box and side-foots a bouncing cut-back first time into the corner.",
-    animation: "shot",
+    animation: "powershot",
     image:
       "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1400&q=80",
     imageAlt: "Football goalmouth ready for a finish",
@@ -205,7 +212,7 @@ export const skills: Skill[] = [
       "The return pass should be played first time. Your run starts as you release the first pass, not after you watch it arrive.",
     matchExample:
       "A striker lays the ball off to a teammate on the edge of the box and spins in behind. The one-two is finished before the centre-back can recover.",
-    animation: "pass",
+    animation: "onetwo",
     image:
       "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1400&q=80",
     imageAlt: "Team combination play toward goal",
@@ -224,7 +231,7 @@ export const skills: Skill[] = [
       "Ronaldinho’s elastico in 1v1s sold the outside, then took the inside lane in a single flick. The defender’s weight was already gone.",
     videoId: "Uursm9mHlq4",
     videoTitle: "How to do the elastico like Ronaldinho",
-    animation: "fake",
+    animation: "elastico",
     image:
       "https://images.unsplash.com/photo-1553778263-73a83bab9b0c?auto=format&fit=crop&w=1400&q=80",
     imageAlt: "Close-up of quick feet around a football",
@@ -243,7 +250,7 @@ export const skills: Skill[] = [
       "Zinedine Zidane used this turn to escape double teams in midfield. The spin is not for show — it is a shield and a reset in one move.",
     videoId: "3IpA1P1gB9k",
     videoTitle: "How to learn the Marseille turn / Zidane roulette",
-    animation: "turn",
+    animation: "roulette",
     image:
       "https://images.unsplash.com/photo-1461896836934-ffe607ba6852?auto=format&fit=crop&w=1400&q=80",
     imageAlt: "Athlete turning at speed",
@@ -260,7 +267,7 @@ export const skills: Skill[] = [
       "Look at the dummy option until the defender’s hips turn that way, then pass the other way without changing your head. If you glance late, they recover.",
     matchExample:
       "Playmakers freeze a midfield line by staring at the striker, then slip the ball to an unmarked runner on the far side.",
-    animation: "through",
+    animation: "nolook",
     image:
       "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=1400&q=80",
     imageAlt: "Playmaker looking one way before releasing a pass",
@@ -279,7 +286,7 @@ export const skills: Skill[] = [
       "Wingers and attackers have scored and crossed with rabonas when they were cut onto their weaker foot at the byline.",
     videoId: "tigrYlhZyIo",
     videoTitle: "How to do a rabona",
-    animation: "cross",
+    animation: "rabona",
     image:
       "https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=1400&q=80",
     imageAlt: "Player wrapping a strike from an awkward body shape",
@@ -296,7 +303,7 @@ export const skills: Skill[] = [
       "The chip is struck after the keeper commits. Watch their first hop. If they stay central, abort and hit a normal penalty.",
     matchExample:
       "Antonín Panenka’s 1976 European Championship final kick invented the move. Modern players still use it when the keeper has dived early all game.",
-    animation: "setpiece",
+    animation: "panenka",
     image:
       "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1400&q=80",
     imageAlt: "Penalty spot facing an empty net",
@@ -313,7 +320,7 @@ export const skills: Skill[] = [
       "Contact is late and across the outside of the ball. The curve needs space — do not try it in a crowded six-yard box. Release when the far-side runner or far post is the target.",
     matchExample:
       "Ricardo Quaresma made the trivela a signature: outside-foot bends from wide areas that looked impossible from the body shape.",
-    animation: "shot",
+    animation: "trivela",
     image:
       "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1400&q=80",
     imageAlt: "Floodlit stadium for an outside-foot strike",

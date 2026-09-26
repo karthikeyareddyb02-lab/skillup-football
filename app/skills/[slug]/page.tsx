@@ -46,6 +46,9 @@ export default async function SkillDetailPage({
       <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="space-y-4">
           <div className="flex flex-wrap items-center gap-2">
+            <span className="shirt-number grid size-10 place-items-center rounded-full bg-primary text-lg text-primary-foreground">
+              {skill.difficulty}
+            </span>
             <Badge>Level {skill.difficulty}</Badge>
             <span className="text-sm text-muted-foreground">{level.label}</span>
           </div>
@@ -62,7 +65,9 @@ export default async function SkillDetailPage({
             />
           </div>
         </div>
-        <PitchAnimation kind={skill.animation} />
+        <div className="space-y-2">
+          <PitchAnimation kind={skill.animation} />
+        </div>
       </div>
 
       <div className="mt-10 grid gap-4 md:grid-cols-2">

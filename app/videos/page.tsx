@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { PageKicker } from "@/components/page-kicker"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { PitchAnimation } from "@/components/pitch-animation"
 import { YoutubeEmbed } from "@/components/youtube-embed"
@@ -16,12 +17,11 @@ export default function VideosPage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
       <div className="max-w-2xl space-y-3">
-        <p className="text-sm uppercase tracking-[0.2em] text-primary">Film room</p>
+        <PageKicker>Film room</PageKicker>
         <h1 className="text-4xl sm:text-5xl">Videos and animations</h1>
         <p className="text-muted-foreground">
-          Real clips show the skill in a match picture. The pitch animations show
-          the timing — when the defender leans, when the runner goes, when the
-          ball has to leave your foot.
+          Real clips show the skill in a match picture. The pitches below
+          replay each assigned move with the ball and players.
         </p>
       </div>
 
@@ -32,7 +32,7 @@ export default function VideosPage() {
         ) : (
           <div className="grid gap-6 lg:grid-cols-2">
             {filmed.map((skill) => (
-              <Card key={skill.slug}>
+              <Card key={skill.slug} className="match-card">
                 <CardHeader>
                   <CardTitle>
                     <Link href={`/skills/${skill.slug}`} className="hover:text-primary">
@@ -56,12 +56,12 @@ export default function VideosPage() {
       <section className="mt-14 space-y-4">
         <h2 className="text-3xl">Animation lab</h2>
         <p className="max-w-2xl text-muted-foreground">
-          Replay these until you can name the trigger: the lean, the run, or the
-          open lane.
+          Each pitch loops the skill on its own — pass, dribble, turn, shot —
+          so you can watch the timing without touching it.
         </p>
         <div className="grid gap-6 md:grid-cols-2">
           {skills.map((skill) => (
-            <Card key={skill.slug}>
+            <Card key={skill.slug} className="match-card">
               <CardHeader>
                 <CardTitle>
                   <Link href={`/skills/${skill.slug}`} className="hover:text-primary">

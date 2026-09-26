@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { PitchAnimation } from "@/components/pitch-animation"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { difficultyCopy, type Skill } from "@/lib/skills"
@@ -9,15 +10,21 @@ export function SkillCard({ skill }: { skill: Skill }) {
 
   return (
     <Link href={`/skills/${skill.slug}`} className="block h-full">
-      <Card className="h-full transition-colors hover:bg-muted/40">
-        <div className="relative aspect-16/10 overflow-hidden">
-          <Image
-            src={skill.image}
-            alt={skill.imageAlt}
-            fill
-            sizes="(max-width: 768px) 100vw, 33vw"
-            className="object-cover"
-          />
+      <Card className="match-card h-full transition-colors hover:bg-muted/40">
+        <div className="relative">
+          <div className="pointer-events-none absolute inset-0">
+            <Image
+              src={skill.image}
+              alt=""
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover opacity-25"
+            />
+          </div>
+          <PitchAnimation kind={skill.animation} caption={false} className="relative z-[1]" />
+          <span className="shirt-number absolute top-3 left-3 z-10 grid size-9 place-items-center rounded-full bg-primary text-base text-primary-foreground shadow-md">
+            {skill.difficulty}
+          </span>
         </div>
         <CardHeader>
           <div className="flex items-center gap-2">
@@ -28,7 +35,7 @@ export function SkillCard({ skill }: { skill: Skill }) {
           <CardDescription>{skill.summary}</CardDescription>
         </CardHeader>
         <CardContent className="text-muted-foreground">
-          Open for situation, perfect timing, and a match example.
+          The pitch replay shows this skill, then open the page for the full picture.
         </CardContent>
       </Card>
     </Link>
